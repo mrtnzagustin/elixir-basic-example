@@ -7,6 +7,7 @@ defmodule AppWeb.Router do
 
   scope "/api", AppWeb do
     pipe_through :api
+    resources "/sensors", SensorController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development

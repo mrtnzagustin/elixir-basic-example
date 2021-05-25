@@ -11,3 +11,16 @@ services:
             - docker.environment
         networks: 
             - default
+        ports:
+            - "4000:4000"
+    db: # Contenedor mariadb para la base de datos    
+        image: mariadb   
+        environment:      
+            MYSQL_ROOT_PASSWORD: elixir_example      
+            MYSQL_DATABASE: elixir_example      
+            MYSQL_USER: elixir_example      
+            MYSQL_PASSWORD: elixir_example   
+        # volumes:      
+            # - ./db/dump:/docker-entrypoint-initdb.d # Todo los .sql que esten en /docker-entrypoint-initdb.d se ejecutan al iniciar el contenedor
+        networks:
+            - default
